@@ -54,17 +54,16 @@ stop
 
 ###  2. if you already have php project
 
-Init laradock as submodule:
+    composer install
+    git submodule add https://github.com/Laradock/laradock.git
+    cd laradock && docker-compose up -d nginx mysql 
+    cd laradock && mv env-example .env
+    sudo docker-compose up -d nginx mysql 
+    sudo docker-compose exec workspace bash
+    php artisan key:generate
+    cp .env.example .env
+    php artisan key:generate
 
-    git submodule update --init --recursive
+    
 
-Start development docker:
-
-    cd laradock && docker-compose up -d nginx mysql redis
-
-> (doc laradock)[http://laradock.io/documentation/].
-
-If necessary change permission on storage folder:
-
-    chmod -R 777 storage/logs
 
