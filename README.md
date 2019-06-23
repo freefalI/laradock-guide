@@ -40,6 +40,24 @@ If necessary change permission on storage folder:
 
     chmod -R 777 storage/logs
 
+
+
+
+##  2. if you already have php project
+
+    composer install
+    git submodule add https://github.com/Laradock/laradock.git
+    cd laradock && cp env-example .env
+    sudo docker-compose up -d nginx mysql 
+get access to terminal
+
+    sudo docker-compose exec workspace bash
+    
+other
+
+    php artisan key:generate
+    
+
 ### Run and stop workspace 
 
 run
@@ -49,21 +67,4 @@ run
 stop
 
     docker-compose stop  
-
-
-
-###  2. if you already have php project
-
-    composer install
-    git submodule add https://github.com/Laradock/laradock.git
-    cd laradock && docker-compose up -d nginx mysql 
-    cd laradock && mv env-example .env
-    sudo docker-compose up -d nginx mysql 
-    sudo docker-compose exec workspace bash
-    php artisan key:generate
-    cp .env.example .env
-    php artisan key:generate
-
-    
-
 
